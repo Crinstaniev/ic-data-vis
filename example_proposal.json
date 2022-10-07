@@ -1,0 +1,39 @@
+{
+    "id": 8,
+    "data": {
+        "action": "ExecuteNnsFunction",
+        "action_nns_function": "NnsCanisterUpgrade",
+        "deadline_timestamp_seconds": null,
+        "decided_timestamp_seconds": 1620341195,
+        "executed_timestamp_seconds": 1620341195,
+        "failed_timestamp_seconds": 0,
+        "id": 6,
+        "known_neurons_ballots": [],
+        "latest_tally": {
+            "no": 0,
+            "timestamp_seconds": 1620341195,
+            "total": 31540022769039859,
+            "yes": 31539600148039859
+        },
+        "payload": {
+            "arg": [],
+            "authz_changes": [],
+            "canister_id": "rno2w-sqaaa-aaaaa-aaacq-cai",
+            "mode": "upgrade",
+            "stop_before_installing": true,
+            "wasm_module": "e7444032137bfddcb6eb5f06e8ef7eb5f653c5a6017e77c6cea1c303de0ffe1b"
+        },
+        "proposal_id": 8,
+        "proposal_timestamp_seconds": 1620339699,
+        "proposer": "35",
+        "reject_cost_e8s": 100000000,
+        "reward_status": "SETTLED",
+        "settled_at": 1620316800,
+        "status": "EXECUTED",
+        "summary": "Upgrade lifeline canister to git commit 8a560f9510b0df9e747ffaede3b731f2ade9c0b7",
+        "title": "",
+        "topic": "TOPIC_NETWORK_CANISTER_MANAGEMENT",
+        "updated_at": "2021-08-05T15:50:43.161765",
+        "url": "https://github.com/dfinity/nns-proposals/blob/main/proposals/network_canister_management/20210506T2220Z.md"
+    }
+}
