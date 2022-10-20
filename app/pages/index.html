@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" , initial-scale=1.0">
+    <title>Demo</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="tabConWrap">
+        <ul class="tabs">
+            <li><a href="chord.html">Chord</a></li>
+            <li><a href="terminus.html">Terminus</a></li>
+            <li><a href="network.html">Network</a></li>
+            <li><a href="topic_area_chart.html">Area Chart</a></li>
+            <li><a href="wordcloud.html">Wordcloud</a></li>
+        </ul>
+
+        <div class="tabContainer">
+            <iframe></iframe>
+        </div>
+    </div>
+</body>
+
+<style>
+    .tabConWrap {
+        width: 98%;
+        position: relative;
+        padding-top: 28px;
+        margin: 10px auto 30px;
+        border-bottom: 4px solid #39f;
+        text-align: left;
+    }
+
+    iframe {
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tabs {
+        width: auto;
+        height: 28px;
+        margin: 0px 0px;
+        padding: 0px 0px;
+    }
+
+    .tabs li {
+        margin: 0px 2px 0px 0px;
+        padding: 0px 0px;
+        display: inline;
+        font: bold 12px Arial, Sans-Serif;
+    }
+
+    .tabs li a {
+        background-color: #39f;
+        color: white;
+        padding: 7px 10px;
+        text-decoration: none;
+        border: 1px solid #ccc;
+        border-bottom: none;
+        -webkit-border-radius: 5px 5px 0px 0px;
+        -moz-border-radius: 5px 5px 0px 0px;
+        border-radius: 5px 5px 0px 0px;
+    }
+
+    .tabs .currentTab {
+        background-color: white;
+        color: #999;
+        position: relative;
+        z-index: 7;
+    }
+
+    .tabContainer {
+        padding: 10px;
+        height: 750px;
+        background-color: white;
+        border: 1px solid #ccc;
+        position: relative;
+        margin-top: -3px;
+        z-index: 2;
+        overflow: hidden;
+    }
+
+    .tabContainer iframe {
+        border: none;
+        width: 100%;
+        height: 750px;
+    }
+
+    h2#loading {
+        width: 100px;
+        text-align: center;
+        font: bold 11px Arial, Sans-Serif;
+        position: absolute;
+        top: 0px;
+        left: 50%;
+        margin-left: -50px;
+        padding: 5px 0px;
+        background-color: #BC151A;
+        color: white;
+    }
+</style>
+
+<script>
+    $(function () {
+        var tabs = $('.tabs li a'),
+            tabContents = $('div.tabContainer');
+
+        tabs.eq(0).addClass('currentTab');
+
+        tabs.click(function () {
+            tabs.removeClass();
+            $(this).addClass('currentTab');
+            tabContents.animate({ height: 0 }, 'slow')
+                .find('iframe').attr('src', $(this).attr('href'));
+            $('body').append('<h2 id="loading">Loading...</h2>');
+            return false;
+        });
+        $('div.tabConWrap iframe').bind("load", function () {
+            tabContents.animate({ height: 750 }, 'slow');
+            $('h2#loading').remove();
+        });
+    });
+
+</script>
+
+</html>
